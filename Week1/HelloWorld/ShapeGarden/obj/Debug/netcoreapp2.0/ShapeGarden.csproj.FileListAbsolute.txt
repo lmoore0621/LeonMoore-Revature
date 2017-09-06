@@ -1,0 +1,10 @@
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\obj\Debug\netcoreapp2.0\ShapeGarden.csproj.CoreCompileInputs.cache
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\obj\Debug\netcoreapp2.0\ShapeGarden.AssemblyInfoInputs.cache
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\obj\Debug\netcoreapp2.0\ShapeGarden.AssemblyInfo.cs
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\bin\Debug\netcoreapp2.0\ShapeGarden.deps.json
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\bin\Debug\netcoreapp2.0\ShapeGarden.runtimeconfig.json
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\bin\Debug\netcoreapp2.0\ShapeGarden.runtimeconfig.dev.json
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\bin\Debug\netcoreapp2.0\ShapeGarden.dll
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\bin\Debug\netcoreapp2.0\ShapeGarden.pdb
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\obj\Debug\netcoreapp2.0\ShapeGarden.dll
+C:\Users\Leon\Desktop\Revature\Week1\HelloWorld\ShapeGarden\obj\Debug\netcoreapp2.0\ShapeGarden.pdb

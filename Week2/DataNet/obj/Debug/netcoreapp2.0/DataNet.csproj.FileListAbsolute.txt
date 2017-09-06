@@ -1,0 +1,10 @@
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\bin\Debug\netcoreapp2.0\DataNet.deps.json
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\bin\Debug\netcoreapp2.0\DataNet.runtimeconfig.json
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\bin\Debug\netcoreapp2.0\DataNet.runtimeconfig.dev.json
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\bin\Debug\netcoreapp2.0\DataNet.dll
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\bin\Debug\netcoreapp2.0\DataNet.pdb
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\obj\Debug\netcoreapp2.0\DataNet.csproj.CoreCompileInputs.cache
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\obj\Debug\netcoreapp2.0\DataNet.AssemblyInfoInputs.cache
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\obj\Debug\netcoreapp2.0\DataNet.AssemblyInfo.cs
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\obj\Debug\netcoreapp2.0\DataNet.dll
+C:\Users\Leon\Desktop\Revature\Week2\DataNet\obj\Debug\netcoreapp2.0\DataNet.pdb

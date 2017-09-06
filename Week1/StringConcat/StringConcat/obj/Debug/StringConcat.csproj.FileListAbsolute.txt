@@ -1,0 +1,6 @@
+C:\Users\Leon\Desktop\Revature\Week 1\StringConcat\StringConcat\bin\Debug\StringConcat.exe.config
+C:\Users\Leon\Desktop\Revature\Week 1\StringConcat\StringConcat\bin\Debug\StringConcat.exe
+C:\Users\Leon\Desktop\Revature\Week 1\StringConcat\StringConcat\bin\Debug\StringConcat.pdb
+C:\Users\Leon\Desktop\Revature\Week 1\StringConcat\StringConcat\obj\Debug\StringConcat.csprojResolveAssemblyReference.cache
+C:\Users\Leon\Desktop\Revature\Week 1\StringConcat\StringConcat\obj\Debug\StringConcat.exe
+C:\Users\Leon\Desktop\Revature\Week 1\StringConcat\StringConcat\obj\Debug\StringConcat.pdb

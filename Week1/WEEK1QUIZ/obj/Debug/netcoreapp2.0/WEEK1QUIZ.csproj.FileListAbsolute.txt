@@ -1,0 +1,13 @@
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\WEEK1QUIZ.deps.json
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\WEEK1QUIZ.runtimeconfig.json
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\WEEK1QUIZ.runtimeconfig.dev.json
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\WEEK1QUIZ.dll
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\bin\Debug\netcoreapp2.0\WEEK1QUIZ.pdb
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\obj\Debug\netcoreapp2.0\WEEK1QUIZ.csproj.CoreCompileInputs.cache
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\obj\Debug\netcoreapp2.0\WEEK1QUIZ.AssemblyInfoInputs.cache
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\obj\Debug\netcoreapp2.0\WEEK1QUIZ.AssemblyInfo.cs
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\obj\Debug\netcoreapp2.0\WEEK1QUIZ.dll
+c:\Users\Leon\Desktop\Revature\Week1\WEEK1QUIZ\obj\Debug\netcoreapp2.0\WEEK1QUIZ.pdb

@@ -1,0 +1,11 @@
+C:\Users\Leon\Desktop\Revature\Week1\QATest\obj\Debug\netcoreapp2.0\QATest.csproj.CoreCompileInputs.cache
+C:\Users\Leon\Desktop\Revature\Week1\QATest\obj\Debug\netcoreapp2.0\QATest.AssemblyInfoInputs.cache
+C:\Users\Leon\Desktop\Revature\Week1\QATest\obj\Debug\netcoreapp2.0\QATest.AssemblyInfo.cs
+C:\Users\Leon\Desktop\Revature\Week1\QATest\bin\Debug\netcoreapp2.0\QATest.deps.json
+C:\Users\Leon\Desktop\Revature\Week1\QATest\bin\Debug\netcoreapp2.0\QATest.runtimeconfig.json
+C:\Users\Leon\Desktop\Revature\Week1\QATest\bin\Debug\netcoreapp2.0\QATest.runtimeconfig.dev.json
+C:\Users\Leon\Desktop\Revature\Week1\QATest\bin\Debug\netcoreapp2.0\QATest.dll
+C:\Users\Leon\Desktop\Revature\Week1\QATest\bin\Debug\netcoreapp2.0\QATest.pdb
+C:\Users\Leon\Desktop\Revature\Week1\QATest\obj\Debug\netcoreapp2.0\QATest.dll
+C:\Users\Leon\Desktop\Revature\Week1\QATest\obj\Debug\netcoreapp2.0\QATest.pdb
+C:\Users\Leon\Desktop\Revature\Week1\QATest\bin\Debug\netcoreapp2.0\Machine.TestAdapter.dll
