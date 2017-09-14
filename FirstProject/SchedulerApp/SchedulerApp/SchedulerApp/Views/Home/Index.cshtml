@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<nav>
+    <a href="/Home/CreateBook">Add Professors or Students</a>
+</nav>
+
+<h2>Registrar</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Edit</th>
+            <th>Title</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Copyright</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (Book book in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/Home/UpdateBook/@book.Id">Update</a>
+                        <a href="/Home/DeleteBook/@book.Id">Delete</a>
+                    </td>
+                    <td>@book.Title</td>
+                    <td>@book.AuthorFirstName</td>
+                    <td>@book.AuthorLastName</td>
+                    <td>@book.Copyright</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" align="center">No Books Found</td>
+            </tr>
+        }
+    </tbody>
+</table>
