@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerApp.Data", "Schedu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerApp.Domain", "SchedulerApp.Domain\SchedulerApp.Domain.csproj", "{A1C00A98-5776-4F76-811C-34127F37FFCF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{11204274-8746-4431-832F-89653DD0FBCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{D732A780-0DAB-4629-9EBB-B9C9DACAE67F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{FF9155F4-3EBE-4E7C-B3F9-A96BD03E9A55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD790EC9-DA22-43A0-9CF6-40BB01F429E7} = {FF9155F4-3EBE-4E7C-B3F9-A96BD03E9A55}
+		{BD25B33D-B76E-4782-9BEF-3D7A052743FB} = {11204274-8746-4431-832F-89653DD0FBCD}
+		{A1C00A98-5776-4F76-811C-34127F37FFCF} = {D732A780-0DAB-4629-9EBB-B9C9DACAE67F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8BFBEA96-8869-42B7-A9D2-5F9357310A69}
