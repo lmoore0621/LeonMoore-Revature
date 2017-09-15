@@ -23,7 +23,7 @@ namespace SchedulerApp.Models.Model
 
         public DateTime EndDate { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public TimeSpan StartTime { get; set; }
 
         public int Length { get; set; }
 

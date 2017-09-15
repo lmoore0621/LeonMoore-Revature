@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerApp.Client", "SchedulerApp\SchedulerApp.Client.csproj", "{BD790EC9-DA22-43A0-9CF6-40BB01F429E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerApp.Data", "SchedulerApp.Model\SchedulerApp.Data.csproj", "{BD25B33D-B76E-4782-9BEF-3D7A052743FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerApp.Domain", "SchedulerApp.Domain\SchedulerApp.Domain.csproj", "{A1C00A98-5776-4F76-811C-34127F37FFCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD790EC9-DA22-43A0-9CF6-40BB01F429E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD790EC9-DA22-43A0-9CF6-40BB01F429E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD790EC9-DA22-43A0-9CF6-40BB01F429E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD790EC9-DA22-43A0-9CF6-40BB01F429E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD25B33D-B76E-4782-9BEF-3D7A052743FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD25B33D-B76E-4782-9BEF-3D7A052743FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD25B33D-B76E-4782-9BEF-3D7A052743FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD25B33D-B76E-4782-9BEF-3D7A052743FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C00A98-5776-4F76-811C-34127F37FFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C00A98-5776-4F76-811C-34127F37FFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C00A98-5776-4F76-811C-34127F37FFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C00A98-5776-4F76-811C-34127F37FFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BFBEA96-8869-42B7-A9D2-5F9357310A69}
+	EndGlobalSection
+EndGlobal

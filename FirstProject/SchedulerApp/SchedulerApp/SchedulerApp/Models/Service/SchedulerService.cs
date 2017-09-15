@@ -24,6 +24,16 @@ namespace SchedulerApp.Models.Service
             MaxCreditHours = int.Parse(ConfigurationManager.AppSettings["MaxCreditHours"]);
         }
 
+        #region Security
+        public Member AuthenticateUser(string username, string password)
+        {
+            Member member = db.Members.FirstOrDefault(m => m.Username.ToLower() == username.ToLower() && m.Password == password);
+
+            return member;
+        }
+
+        #endregion
+
         #region Registrar
 
         public void CreateCourse(Course course)

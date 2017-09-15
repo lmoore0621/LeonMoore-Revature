@@ -1,26 +1,42 @@
 ﻿using SchedulerApp.Models.Data;
 using SchedulerApp.Models.Model;
+using SchedulerApp.Models.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SchedulerApp.Models.Attributes;
 using System.Web.Mvc;
 
 namespace SchedulerApp.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private DataSource db = new DataSource();
+        private SchedulerService service = new SchedulerService();
 
         // GET: Home
+        [Authenticated]
         public ActionResult Index()
         {
-            IEnumerable<Course> courses = db.Courses.ToList();
+            IEnumerable<Course> courses = new List<Course>();
+
+            if (CurrentUser.RoleName.ToLower() == "registrar")
+            {
+                courses = db.Courses.ToList();
+            }
+            else if (CurrentUser.RoleName.ToLower() == "professor")
+            {
+                courses = service.GetProfessorWithCourses(CurrentUser.Id).ProfessorCourses;
+            }
+            else
+            {
+                courses = service.GetStudentWithCourses(CurrentUser.Id).StudentCourses;
+            }
 
             return View(courses);
         }
 
-        // GET: Home/Details/5
         public ActionResult Details(int id)
         {
             return View();
@@ -89,20 +105,31 @@ namespace SchedulerApp.Controllers
             return View();
         }
 
-        // POST: Home/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpGet]
+        public ActionResult Login()
         {
-            try
+            CurrentUser = null;
+
+            ViewBag.Message = "Please enter Username and Password";
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string username, string password)
+        {
+            Member member = service.AuthenticateUser(username, password);
+
+            if (member != null)
             {
-                // TODO: Add delete logic here
+                CurrentUser = member;
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.Message = "Invalid Username and/or Password";
+
+            return View();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<SchedulerApp.Models.Model.Course>
 @{
     ViewBag.Title = "Index";
 }
@@ -8,40 +8,41 @@
     <a href="/Home/CreateBook">Add Professors or Students</a>
 </nav>
 
-<h2>Registrar</h2>
+<h2> Schedule</h2>
 
 <table border="1" cellpadding="8" cellspacing="0">
     <thead>
         <tr>
-            <th>Edit</th>
-            <th>Title</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Copyright</th>
+            <th>Course</th>
+            <th>Course Time</th>
+            <th>Class Length</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Course Credit Hours</th>
+            <th>Student Capcity</th>
         </tr>
     </thead>
 
     <tbody>
         @if (Model != null && Model.Any())
         {
-            foreach (Book book in Model)
+            foreach (var course in Model)
             {
                 <tr>
-                    <td>
-                        <a href="/Home/UpdateBook/@book.Id">Update</a>
-                        <a href="/Home/DeleteBook/@book.Id">Delete</a>
-                    </td>
-                    <td>@book.Title</td>
-                    <td>@book.AuthorFirstName</td>
-                    <td>@book.AuthorLastName</td>
-                    <td>@book.Copyright</td>
+                    <td>@course.Name</td>
+                    <td>@(course.StartTime.Hours%12 + ":" + course.StartTime.ToString("mm") + " " + (course.StartTime.Hours > 11 ? "pm" : "am"))</td>
+                    <td>@course.Length</td>
+                    <td>@course.StartDate.ToShortDateString()</td>
+                    <td>@course.EndDate.ToShortDateString()</td>
+                    <td>@course.CreditHours</td>
+                    <td>@course.StudentCapacity</td>
                 </tr>
             }
         }
         else
         {
             <tr>
-                <td colspan="5" align="center">No Books Found</td>
+                <td colspan="7" align="center">No Schedule Found</td>
             </tr>
         }
     </tbody>

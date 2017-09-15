@@ -21,6 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (Session["CurrentUser"] != null)
+                    {
+                        <li><a href="/home/Login">Logout</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -30,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - CorporateBan University</p>
         </footer>
     </div>
 
