@@ -13,13 +13,15 @@ namespace SchedulerApp.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;initial catalog=schedulerDb;integrated security=true");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;initial catalog=SchedulerDb;integrated security=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             Configure(modelBuilder.Entity<Member>());
             Configure(modelBuilder.Entity<Course>());
+            Configure(modelBuilder.Entity<StudentCourses>());
+
         }
 
         private void Configure(EntityTypeBuilder<Member> entity)
@@ -32,7 +34,7 @@ namespace SchedulerApp.Model
             entity.Property(m => m.FirstName).HasMaxLength(50).IsRequired();
             entity.Property(m => m.LastName).HasMaxLength(50).IsRequired();
 
-            entity.HasMany(m => m.StudentCourses).WithOne(sc => sc.Student).HasForeignKey(sc => sc.StudentId).OnDelete(DeleteBehavior.Restrict);
+            entity.HasMany(m => m.StudentCourses).WithOne(sc => sc.Student).HasForeignKey(sc => sc.StudentId);
             entity.HasMany(m => m.ProfessorCourses).WithOne(c => c.Professor).HasForeignKey(c => c.ProfessorId).OnDelete(DeleteBehavior.Restrict);
         }
 
@@ -45,14 +47,13 @@ namespace SchedulerApp.Model
             entity.Property(c => c.EndDate).HasColumnType("date");
             entity.Property(c => c.StartTime).HasColumnType("time");
 
-            entity.HasMany(c => c.StudentCourses).WithOne(sc => sc.Course).HasForeignKey(sc => sc.CourseId).OnDelete(DeleteBehavior.Restrict);
+            entity.HasMany(c => c.StudentCourses).WithOne(sc => sc.Course).HasForeignKey(sc => sc.CourseId);
         }
 
         private void Configure(EntityTypeBuilder<StudentCourses> entity)
         {
             entity.ToTable("StudentCourses");
-            entity.HasKey(sc => sc.StudentId);
-            entity.HasKey(sc => sc.CourseId);
+            entity.HasKey(sc => new { sc.StudentId, sc.CourseId });
         }
     }
 }
