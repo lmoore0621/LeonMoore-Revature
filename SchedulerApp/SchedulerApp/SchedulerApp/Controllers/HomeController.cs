@@ -21,17 +21,49 @@ namespace SchedulerApp.Client.Controllers
         public IActionResult Index()
         {
             IEnumerable<Course> courses = new List<Course>();
+            string userRole = ClaimTypes.Role.ToLower();
 
-            if (User.HasClaim(ClaimTypes.Role, "registrar"))
+            if (User.HasClaim(userRole, "registrar"))
             {
                 courses = db.Courses.ToList();
             }
-            else if (User.HasClaim(ClaimTypes.Role, "professor"))
+            else if (User.HasClaim(userRole, "professor"))
             {
-                courses = service.GetProfessorWithCourses(CurrentUser.Id).ProfessorCourses;
+                courses = service.GetProfessorWithCourses(CurrentUser.Id + 1).ProfessorCourses;
+            }
+            else
+            {
+                //courses = service.GetStudentWithCourses(CurrentUser.Id).StudentCourses;
             }
 
             return View(courses);
+        }
+
+        
+        public IActionResult CreateMember()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateMember(Member member)
+        {
+            service.CreateMember(member);
+                                                                                                            
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult CreateCourse()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateCourse(Course course)
+        {
+            service.CreateCourse(course);
+
+            return RedirectToAction("Index");
         }
     }
 }

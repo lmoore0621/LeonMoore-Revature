@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "CreateMember";
+}
+
+<h2>Create Professor and student</h2>
+<hr />
+
+@*<form method="post" action="/Home/Create">
+
+    <table cellpadding="8" border="1" cellspacing="0">
+        <tr>
+            <td align="center"><strong><label for="FirstName">First Name:</label></strong></td>
+            <td>
+                <input type="text" name="FirstName" />
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center"><strong><label for="LastName">Last Name:</label></strong></td>
+            <td>
+                <input type="text" name="LastName" />
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center"><strong><label for="UserName">User Name:</label></strong></td>
+            <td>
+                <input type="text" name="UserName" />
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center"><strong><label for="Password">Password:</label></strong></td>
+            <td>
+                <input type="password" name="password" />
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center"><strong><label for="RoleName">User Role:</label></strong></td>
+            <td>
+                <select name="RoleName">
+                    <option value="student">Student</option>
+                    <option value="professor">Professor</option>
+                    <option value="registrar">Registrar</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Create" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/Home/Index/">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>*@
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateCourse">
+            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label"></label>
+                    <input type="hidden" asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProfessorId" class="control-label"></label>
+                    <input type="hidden" asp-for="ProfessorId" class="form-control" />
+                    <span asp-validation-for="ProfessorId" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">First Name:</label>
+                <input type="text" asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Last Name:</label>
+                <input type="text" min="2" max="4" asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label">User Name:</label>
+                <input type="text" asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password:</label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleName" class="control-label">User Role:</label>
+                <select name="RoleName">
+                    <option>Choose</option>
+                    <option value="student">Student</option>
+                    <option value="professor">Professor</option>
+                    <option value="registrar">Registrar</option>
+                </select>
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create Member" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a href="/Home/Index/">Back to List</a>
+</div>

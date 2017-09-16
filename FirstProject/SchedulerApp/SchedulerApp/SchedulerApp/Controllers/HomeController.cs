@@ -52,6 +52,7 @@ namespace SchedulerApp.Controllers
         [HttpPost]
         public ActionResult Create(Course course)
         {
+            service.CreateCourse(course);
             //try
             //{
             //    // TODO: Add insert logic here
