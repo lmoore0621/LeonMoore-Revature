@@ -1,13 +1,40 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>_Layout</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-default col-md-12">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Scheduler</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-body">
+                    <ul class="nav navbar-nav">
+                        <li></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row">
+            <main id="mainContent" class="col-md-12">
+                <div class="row">
+                    <section id="mainSection" class="col-md-12">
+                        @RenderBody()
+                    </section>
+                </div>
+            </main>
+        </div>
     </div>
 </body>
 </html>

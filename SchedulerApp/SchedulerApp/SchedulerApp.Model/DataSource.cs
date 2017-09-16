@@ -3,7 +3,7 @@ using SchedulerApp.Domain;
 using System;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SchedulerApp.Model
+namespace SchedulerApp.Data
 {
     public class DataSource : DbContext
     {

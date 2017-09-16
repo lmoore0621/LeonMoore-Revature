@@ -52,18 +52,18 @@ namespace SchedulerApp.Controllers
         [HttpPost]
         public ActionResult Create(Course course)
         {
-            try
-            {
-                // TODO: Add insert logic here
-                db.Courses.Add(course);
-                db.SaveChanges();
+            //try
+            //{
+            //    // TODO: Add insert logic here
+            //    db.Courses.Add(course);
+            //    db.SaveChanges();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //    return RedirectToAction("Index");
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: Home/Edit/5
