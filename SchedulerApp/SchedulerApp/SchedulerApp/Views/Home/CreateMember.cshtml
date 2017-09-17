@@ -1,4 +1,4 @@
-﻿@model Member
+﻿
 @{
     ViewData["Title"] = "CreateMember";
 }
@@ -9,6 +9,17 @@
 <div class="row">
     <div class="col-md-4">
         <form for="CreateMember" method="post">
+            <div class="form-group">
+                <label for="RoleName" class="control-label">User Role:</label>
+                <select class="selectpicker form-control" data-style="btn-danger" name="RoleName">
+                    <option>Choose</option>
+                    <option value="student">Student</option>
+                    <option value="professor">Professor</option>
+                    <option value="registrar">Registrar</option>
+                </select>
+                <span for="RoleName" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label for="FirstName" class="control-label">First Name:</label>
                 <input type="text" name="FirstName" class="form-control" />
@@ -29,17 +40,7 @@
                 <input type="password" name="Password" class="form-control" />
                 <span for="Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label for="RoleName" class="control-label">User Role:</label>
-                <select class="selectpicker" data-style="btn-danger" name="RoleName">
-                    <option>Choose</option>
-                    <option value="student">Student</option>
-                    <option value="professor">Professor</option>
-                    <option value="registrar">Registrar</option>
-                </select>
-                <span for="RoleName" class="text-danger"></span>
-            </div>
-            
+
             <div class="form-group">
                 <input type="submit" value="Create Member" class="btn btn-default" />
             </div>

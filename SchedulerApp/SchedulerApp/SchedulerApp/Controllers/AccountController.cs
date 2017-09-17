@@ -8,6 +8,7 @@ using SchedulerApp.Domain;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchedulerApp.Client.Controllers
 {
@@ -31,7 +32,9 @@ namespace SchedulerApp.Client.Controllers
                 List<Claim> claims = new List<Claim>() {
                     new Claim(ClaimTypes.Name, member.Username),
                     new Claim(ClaimTypes.Role, member.RoleName),
-                    new Claim("UserId", member.Id.ToString())
+                    new Claim("UserId", member.Id.ToString()),
+                    new Claim("FullName", member.FirstName + " " + member.LastName),
+                    new Claim("FullNameReversed", member.LastName + ", " + member.FirstName)
                 };
 
                 ClaimsIdentity identity = new ClaimsIdentity(claims, "password");
@@ -44,6 +47,13 @@ namespace SchedulerApp.Client.Controllers
             ViewBag.Message = "Invalid Usename and/or Password";
 
             return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
     }
 }

@@ -16,6 +16,7 @@ namespace SchedulerApp.Client.Controllers
         private DataSource db = new DataSource();
         private SchedulerService service = new SchedulerService();
 
+        [Authorize]
         public IActionResult Index()
         {
             IEnumerable<Course> courses = new List<Course>();
@@ -48,7 +49,7 @@ namespace SchedulerApp.Client.Controllers
         {
             service.CreateMember(member);
                                                                                                             
-            return RedirectToAction("Index");
+            return RedirectToAction("Members");
         }
 
         public IActionResult CreateCourse()
@@ -80,5 +81,34 @@ namespace SchedulerApp.Client.Controllers
             return View(members);
         }
 
+        public IActionResult AvailableCourses()
+        {
+            IEnumerable<Course> courses = service.GetAvailableCourses();
+            if (TempData["ErrorMessage"] != null)
+            {
+                ViewData["ErrorMessage"] = TempData["ErrorMessage"].ToString();
+            }
+            return View(courses);
+        }
+
+        [HttpPost]
+        public IActionResult AddCourse(int studentId, int courseId)
+        {
+            string errorMessage = string.Empty;
+            try
+            {
+                service.AssignCourseToStudent(courseId, studentId);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+            }
+
+            TempData["ErrorMessage"] = errorMessage;
+
+            return RedirectToAction("AvailableCourses");
+        }
     }
 }

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "AvailableCourses";
+}
+
+<h2>Available Courses</h2>
+<p>Please choose a Course</p>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Add Course</th>
+            <th>Name</th>
+            <th>Professor</th>
+            <th>Credit Hours</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Start Time</th>
+            <th>Length</th>
+            <th>Student Capacity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var course in Model)
+            {
+                <tr>
+                    <td>
+                        <form method="post" action="/Home/AddCourse">
+                            <input type="hidden" name="studentId" value="@User.Claims.First(c => c.Type == "UserId").Value" />
+                            <input type="hidden" name="courseId" value="@course.Id" />
+                            <button type="submit">Add To Schedule</button>
+                        </form>
+                    </td>
+                    <td>@course.Name</td>
+                    @if (course.Professor != null)
+                    {
+                        <td>@course.Professor.FirstName @course.Professor.LastName</td>
+                    }
+                    else
+                    {
+                        <td>No Professor Assigned</td>
+                    }
+                    <td>@course.CreditHours</td>
+                    <td>@course.StartDate.ToShortDateString()</td>
+                    <td>@course.EndDate.ToShortDateString()</td>
+                    <td>@(course.StartTime.Hours % 12 + ":" + course.StartTime.ToString("mm") + " " + (course.StartTime.Hours > 11 ? "pm" : "am"))</td>
+                    <td>@course.Length mins</td>
+                    <td>@course.StudentCapacity</td>
+                </tr>
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td align="center" colspan="9">No Courses Available</td>
+            </tr>
+        }
+    </tbody>
+</table>

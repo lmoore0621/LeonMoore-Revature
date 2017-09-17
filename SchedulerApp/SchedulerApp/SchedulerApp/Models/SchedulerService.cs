@@ -91,6 +91,17 @@ namespace SchedulerApp.Client.Models
             db.SaveChanges();
         }
 
+        public IEnumerable<Course> GetAvailableCourses()
+        {
+            List<Course> courses = db.Courses
+                .Where(c => c.StartDate > DateTime.Now)
+                .OrderBy(c => c.StartDate)
+                .ThenBy(c => c.StartTime)
+                .ThenBy(c => c.Name).ToList();
+
+            return courses;
+        }
+
         public IEnumerable<Member> GetAllMembers()
         {
             List<Member> members = db.Members.ToList();
@@ -136,7 +147,7 @@ namespace SchedulerApp.Client.Models
 
         public Member GetProfessorWithCourses(int professorId)
         {
-            Member professor = db.Members.Include(m => m.ProfessorCourses).FirstOrDefault(m => m.Id == professorId);
+            Member professor = db.Members.Include(m => m.ProfessorCourses).ThenInclude(c => c.Professor).FirstOrDefault(m => m.Id == professorId);
 
             return professor;
         }
@@ -152,7 +163,7 @@ namespace SchedulerApp.Client.Models
 
         public Member GetStudentWithCourses(int studentId)
         {
-            Member student = db.Members.Include(m => m.StudentCourses).FirstOrDefault(m => m.Id == studentId);
+            Member student = db.Members.Include(m => m.StudentCourses).ThenInclude(sc => sc.Course).ThenInclude(c => c.Professor).FirstOrDefault(m => m.Id == studentId);
 
             return student;
         }
@@ -168,22 +179,33 @@ namespace SchedulerApp.Client.Models
             Course course = db.Courses.Include(c => c.StudentCourses).ThenInclude(sc => sc.Student).FirstOrDefault(c => c.Id == courseId);
             Member student = db.Members.Include(m => m.StudentCourses).ThenInclude(sc => sc.Course).FirstOrDefault(m => m.Id == studentId);
 
-            if (!student.StudentCourses.Any(sc => sc.CourseId == courseId)
-                && !student.StudentCourses.Any(sc => sc.Course.StartTime == course.StartTime && sc.Course.StartDate == course.StartDate)
-                && !((student.StudentCourses.Sum(sc => sc.Course.CreditHours) + course.CreditHours) > MaxCreditHours)
-                && course.StudentCourses.Count() < course.StudentCapacity)
+            if (student.StudentCourses.Any(sc => sc.CourseId == courseId))
             {
-                StudentCourses studentCourses = new StudentCourses()
-                {
-                    StudentId = studentId,
-                    Student = student,
-                    CourseId = courseId,
-                    Course = course
-                };
-
-                course.StudentCourses.Add(studentCourses);
-                db.SaveChanges();
+                throw new Exception("The course you are trying to add is already in your schedule.");
             }
+            else if (student.StudentCourses.Any(sc => sc.Course.StartTime == course.StartTime && sc.Course.StartDate == course.StartDate))
+            {
+                throw new Exception("This course is at the same time as another course in your schedule.");
+            }
+            else if (((student.StudentCourses.Sum(sc => sc.Course.CreditHours) + course.CreditHours) > MaxCreditHours))
+            {
+                throw new Exception("Adding this course to your schedule will exceed the amount of credit hours allowed.");
+            }
+            else if (course.StudentCourses.Count() >= course.StudentCapacity)
+            {
+                throw new Exception("The course you are attemptint to add is already full.");
+            }
+
+            StudentCourses studentCourses = new StudentCourses()
+            {
+                StudentId = studentId,
+                Student = student,
+                CourseId = courseId,
+                Course = course
+            };
+
+            course.StudentCourses.Add(studentCourses);
+            db.SaveChanges();
         }
 
         public void AssignCoursesToStudent(IEnumerable<int> courseIds, int studentId)

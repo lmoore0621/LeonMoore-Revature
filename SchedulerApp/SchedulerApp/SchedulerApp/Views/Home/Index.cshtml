@@ -2,11 +2,25 @@
 
 @{
     ViewData["Title"] = "Index";
+    string fullName = User.Claims.First(c => c.Type == "FullName").Value;
 }
 
 <h2>Welcome to our Scheduler App</h2>
 
-<table border="1" cellpadding="8" cellspacing="0">
+@if (User.HasClaim(ClaimTypes.Role, "student"))
+{
+    <h5>Student Schedule - @fullName</h5>
+}
+else if(User.HasClaim(ClaimTypes.Role, "professor"))
+{
+    <h5>Professor Schedule - @fullName</h5>
+}
+else
+{
+    <h5>Master Schedule - @fullName</h5>
+}
+
+<table class="table">
     <thead>
         <tr>
             <th>Course</th>
