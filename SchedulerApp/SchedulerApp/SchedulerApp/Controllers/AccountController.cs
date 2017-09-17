@@ -30,7 +30,8 @@ namespace SchedulerApp.Client.Controllers
             {
                 List<Claim> claims = new List<Claim>() {
                     new Claim(ClaimTypes.Name, member.Username),
-                    new Claim(ClaimTypes.Role, member.RoleName)
+                    new Claim(ClaimTypes.Role, member.RoleName),
+                    new Claim("UserId", member.Id.ToString())
                 };
 
                 ClaimsIdentity identity = new ClaimsIdentity(claims, "password");

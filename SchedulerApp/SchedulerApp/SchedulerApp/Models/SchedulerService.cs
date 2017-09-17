@@ -69,6 +69,13 @@ namespace SchedulerApp.Client.Models
             db.SaveChanges();
         }
 
+        public ICollection<Member> GetAllProfessors()
+        {
+            List<Member> professors = db.Members.Where(m => m.RoleName == "professor").OrderBy(m => m.LastName).ToList();
+
+            return professors;
+        }
+
         public void AssignStudentToCourse(int studentId, int courseId)
         {
             Course course = GetCourse(courseId);
@@ -82,6 +89,20 @@ namespace SchedulerApp.Client.Models
 
             course.StudentCourses.Add(studentCourses);
             db.SaveChanges();
+        }
+
+        public IEnumerable<Member> GetAllMembers()
+        {
+            List<Member> members = db.Members.ToList();
+
+            return members;
+        }
+
+        public IEnumerable<Course> GetAllCourses()
+        {
+            List<Course> courses = db.Courses.ToList();
+
+            return courses;
         }
 
         public IEnumerable<Member> SearchMembers(string lastName)

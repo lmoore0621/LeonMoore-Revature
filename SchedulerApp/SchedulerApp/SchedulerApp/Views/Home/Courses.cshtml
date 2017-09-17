@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h2>Courses</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Professor</th>
+            <th>Credit Hours</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Start Time</th>
+            <th>Length</th>
+            <th>Student Capacity</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var course in Model)
+            {
+                <tr>
+                    <td>@course.Name</td>
+                    @if (course.Professor != null)
+                    {
+                        <td>@course.Professor.FirstName @course.Professor.LastName</td>
+                    }
+                    else
+                    {
+                        <td>No Professor Assigned</td>
+                    }
+                    <td>@course.CreditHours</td>
+                    <td>@course.StartDate.ToShortDateString()</td>
+                    <td>@course.EndDate.ToShortDateString()</td>
+                    <td>@(course.StartTime.Hours % 12 + ":" + course.StartTime.ToString("mm") + " " + (course.StartTime.Hours > 11 ? "pm" : "am"))</td>
+                    <td>@course.Length mins</td>
+                    <td>@course.StudentCapacity</td>
+                </tr>
+            }
+
+        }
+        else
+        {
+                <tr>
+                    <td colspan="8">No Courses Found</td>
+                </tr>
+        }
+    </tbody>
+</table>

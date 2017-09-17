@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Member>
+@{
+    ViewData["Title"] = "Members";
+}
+
+<h2>Members</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var member in Model)
+            {
+                <tr>
+                    <td>@member.FirstName</td>
+                    <td>@member.LastName</td>
+                    <td>@member.Username</td>
+                    <td>@member.RoleName</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No Member Found</td>
+            </tr>
+        }
+        <tr>
+
+        </tr>
+    </tbody>
+</table>

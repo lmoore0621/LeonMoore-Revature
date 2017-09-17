@@ -15,13 +15,12 @@ namespace SchedulerApp.Client.Controllers
     {
         private DataSource db = new DataSource();
         private SchedulerService service = new SchedulerService();
-        private Member CurrentUser = new Member();
 
-        [Authorize]
         public IActionResult Index()
         {
             IEnumerable<Course> courses = new List<Course>();
             string userRole = ClaimTypes.Role.ToLower();
+            int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
 
             if (User.HasClaim(userRole, "registrar"))
             {
@@ -29,24 +28,23 @@ namespace SchedulerApp.Client.Controllers
             }
             else if (User.HasClaim(userRole, "professor"))
             {
-                courses = service.GetProfessorWithCourses(CurrentUser.Id + 1).ProfessorCourses;
+                courses = service.GetProfessorWithCourses(userId).ProfessorCourses.ToList();
             }
             else
             {
-                //courses = service.GetStudentWithCourses(CurrentUser.Id).StudentCourses;
+                courses = service.GetStudentWithCourses(userId).StudentCourses.Select(sc => sc.Course).ToList();
             }
 
             return View(courses);
         }
 
-        
         public IActionResult CreateMember()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateMember(Member member)
+        public IActionResult CreateMember([FromForm] Member member)
         {
             service.CreateMember(member);
                                                                                                             
@@ -55,15 +53,32 @@ namespace SchedulerApp.Client.Controllers
 
         public IActionResult CreateCourse()
         {
-            return View();
+            ICollection<Member> professors = service.GetAllProfessors();
+
+            return View(professors);
         }
 
         [HttpPost]
-        public IActionResult CreateCourse(Course course)
+        public IActionResult CreateCourse([FromForm] Course course)
         {
             service.CreateCourse(course);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Courses");
         }
+
+        public IActionResult Courses()
+        {
+            IEnumerable<Course> courses = service.GetAllCourses();
+
+            return View(courses);
+        }
+
+        public IActionResult Members()
+        {
+            IEnumerable<Member> members = service.GetAllMembers();
+
+            return View(members);
+        }
+
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
 
 namespace SchedulerApp
 {
@@ -34,6 +35,12 @@ namespace SchedulerApp
             });
 
             services.AddMvc();
+
+            services.AddAuthorization(options => {
+                options.AddPolicy("RegistrarOnly", policy => policy.RequireClaim(ClaimTypes.Role, "registrar"));
+                options.AddPolicy("RegistrarAndProfessor", policy => policy.RequireClaim(ClaimTypes.Role, "registrar", "professor"));
+                options.AddPolicy("All", policy => policy.RequireClaim(ClaimTypes.Role, "registrar", "professor", "student"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
