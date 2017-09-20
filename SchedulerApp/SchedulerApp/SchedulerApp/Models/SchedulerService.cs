@@ -163,7 +163,10 @@ namespace SchedulerApp.Client.Models
 
         public Member GetStudentWithCourses(int studentId)
         {
-            Member student = db.Members.Include(m => m.StudentCourses).ThenInclude(sc => sc.Course).ThenInclude(c => c.Professor).FirstOrDefault(m => m.Id == studentId);
+            Member student = db.Members.Include(m => m.StudentCourses)
+                .ThenInclude(sc => sc.Course)
+                .ThenInclude(c => c.Professor)
+                .FirstOrDefault(m => m.Id == studentId);
 
             return student;
         }

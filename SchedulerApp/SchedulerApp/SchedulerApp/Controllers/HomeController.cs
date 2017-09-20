@@ -110,5 +110,12 @@ namespace SchedulerApp.Client.Controllers
 
             return RedirectToAction("AvailableCourses");
         }
+
+        public IActionResult RemoveStudentCourse(int courseId, int studentId)
+        {
+            service.RemoveStudentFromCourse(studentId, courseId);
+
+            return View();
+        }
     }
 }
