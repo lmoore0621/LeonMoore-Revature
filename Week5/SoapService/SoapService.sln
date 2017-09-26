@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoapService", "SoapService\SoapService.csproj", "{B24B5DEF-809F-43D1-BDA5-F25C2ED5C236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{F133698F-3DFB-4A18-BAB8-88B7034AB309}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassLib.csproj", "{928C29A9-EABB-45EB-BF3B-271108DEC9C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B24B5DEF-809F-43D1-BDA5-F25C2ED5C236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24B5DEF-809F-43D1-BDA5-F25C2ED5C236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24B5DEF-809F-43D1-BDA5-F25C2ED5C236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24B5DEF-809F-43D1-BDA5-F25C2ED5C236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F133698F-3DFB-4A18-BAB8-88B7034AB309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F133698F-3DFB-4A18-BAB8-88B7034AB309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F133698F-3DFB-4A18-BAB8-88B7034AB309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F133698F-3DFB-4A18-BAB8-88B7034AB309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{928C29A9-EABB-45EB-BF3B-271108DEC9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928C29A9-EABB-45EB-BF3B-271108DEC9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{928C29A9-EABB-45EB-BF3B-271108DEC9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{928C29A9-EABB-45EB-BF3B-271108DEC9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E0945C9-6EE3-4A45-AB42-913851ABBF65}
+	EndGlobalSection
+EndGlobal
