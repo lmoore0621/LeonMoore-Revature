@@ -21,7 +21,6 @@ namespace SchedulerApp.Data
             Configure(modelBuilder.Entity<Member>());
             Configure(modelBuilder.Entity<Course>());
             Configure(modelBuilder.Entity<StudentCourses>());
-
         }
 
         private void Configure(EntityTypeBuilder<Member> entity)
