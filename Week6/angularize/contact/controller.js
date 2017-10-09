@@ -8,7 +8,12 @@
             setTimeout(function () {
                 $scope.message = '';
             }, 5000);
+        }
 
+        $scope.papiSubmit = function () {
+            function success(params) {
+                
+            }
         }
     }]);
 })(window.ngapp);
