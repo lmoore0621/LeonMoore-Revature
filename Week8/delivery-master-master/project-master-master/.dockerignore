@@ -1,0 +1,17 @@
+# PROJECT
+.dockerignore
+.git
+.gitignore
+.vagrant
+.vscode
+
+changelog.md
+contributing.md
+Dockerfile*
+Dockerup*
+godata
+LICENSE
+README.md
+ubuntu*
+Vagrantfile
+Vagrantup.sh

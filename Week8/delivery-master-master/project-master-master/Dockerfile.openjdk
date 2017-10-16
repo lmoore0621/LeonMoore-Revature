@@ -1,0 +1,26 @@
+FROM gocd/gocd-agent-ubuntu-16.04:v17.10.0
+
+# install package dependencies.
+RUN apt-get update
+RUN apt-get install -y \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  software-properties-common
+
+# add docker official gpg key.
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+# add docker repository.
+RUN add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+# install docker engine binary.
+RUN apt-get update
+RUN apt-get install -y \
+  docker-ce=17.06.2~ce-0~ubuntu
+
+# install java.
+RUN apt-get update
+RUN apt-get install -y \
+  default-jdk

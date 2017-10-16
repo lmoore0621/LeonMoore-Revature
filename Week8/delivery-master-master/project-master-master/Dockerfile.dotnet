@@ -1,0 +1,33 @@
+FROM gocd/gocd-agent-ubuntu-16.04:v17.10.0
+
+# install package dependencies.
+RUN apt-get update
+RUN apt-get install -y \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  software-properties-common
+
+# add docker official gpg key.
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+# add docker repository.
+RUN add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+# install docker engine binary.
+RUN apt-get update
+RUN apt-get install -y \
+  docker-ce=17.06.2~ce-0~ubuntu
+
+# add microsoft repository.
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+RUN sh -c 'echo "deb [arch=amd64] \
+  https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > \
+  /etc/apt/sources.list.d/dotnetdev.list'
+
+# install dotnet.
+RUN apt-get update
+RUN apt-get install -y \
+  dotnet-sdk-2.0.0

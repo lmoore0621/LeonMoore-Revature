@@ -1,0 +1,64 @@
+version: "3"
+
+# SERVICES - DOCKER
+services:
+
+  # SERVER - GOCD
+  server:
+    image: gocd/gocd-server:v17.10.0
+    ports:
+      - "8153:8153"
+      - "8154:8154"
+    volumes:
+      - ./godata/server:/godata
+    networks:
+      - skynet
+  
+  # AGENTS - DOTNET
+  agent-dev-dotnet:
+    image: fredbelotte/gocd-agent-dotnet:0.1.0
+    deploy:
+      replicas: 1
+    environment:
+      GO_SERVER_URL: https://server:8154/go
+      AGENT_AUTO_REGISTER_KEY: 11aa37c2-fb40-4683-8a9a-73c56d0fda09
+      AGENT_AUTO_REGISTER_RESOURCES: docker|dotnet
+      AGENT_AUTO_REGISTER_ENVIRONMENTS: DEV
+    volumes:
+      - ./godata/agent/dotnet/dev:/godata
+    networks:
+      - skynet
+  
+  # AGENTS - NODEJS
+  agent-dev-nodejs:
+    image: fredbelotte/gocd-agent-nodejs:0.1.0
+    deploy:
+      replicas: 1
+    environment:
+      GO_SERVER_URL: https://server:8154/go
+      AGENT_AUTO_REGISTER_KEY: 11aa37c2-fb40-4683-8a9a-73c56d0fda09
+      AGENT_AUTO_REGISTER_RESOURCES: docker|nodejs
+      AGENT_AUTO_REGISTER_ENVIRONMENTS: DEV
+    volumes:
+      - ./godata/agent/nodejs/dev:/godata
+    networks:
+      - skynet
+  
+  # AGENTS - OPENJDK
+  agent-dev-openjdk:
+    image: fredbelotte/gocd-agent-openjdk:0.1.0
+    deploy:
+      replicas: 1
+    environment:
+      GO_SERVER_URL: https://server:8154/go
+      AGENT_AUTO_REGISTER_KEY: 11aa37c2-fb40-4683-8a9a-73c56d0fda09
+      AGENT_AUTO_REGISTER_RESOURCES: docker|openjdk
+      AGENT_AUTO_REGISTER_ENVIRONMENTS: DEV
+    volumes:
+      - ./godata/agent/openjdk/dev:/godata
+    networks:
+      - skynet
+
+# NETWORKS - DOCKER
+networks:
+  skynet:
